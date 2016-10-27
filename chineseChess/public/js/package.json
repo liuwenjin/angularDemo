@@ -1,0 +1,15 @@
+{
+  "name": "chess-game",
+  "version": "0.0.1",
+  "description": "This is chess game demo.",
+  "main": "app.js",
+  "scripts": {
+    "test": "gochess"
+  },
+  "author": "liuwenjin",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3"
+  }
+}

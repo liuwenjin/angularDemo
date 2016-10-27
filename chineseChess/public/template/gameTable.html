@@ -1,0 +1,110 @@
+﻿
+<div ng-controller="GameTableCtrl" >
+	<!-- 游戏全局控制 -->
+	<div id="gameOption" class="topMenu container-fluid row">
+		<label class="exitBtn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
+		<label class="chessTableText">等待玩家加入游戏</label>			
+		<label class="shareBtn"><span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span></label>	
+	</div>
+	<div id="tableOption" class="topMenu container-fluid row">
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default btn-sm giveUpBtn">认输</button>
+			<button type="button" class="btn btn-default btn-sm stepBackBtn">悔棋</button>
+			<button type="button" class="btn btn-default btn-sm drawGameBtn">和棋</button>
+		</div>	
+	</div>
+	<!-- Table模板和当前棋局状态 -->
+    <div id='gameView'>	
+			<table id='gameTable' game-table-initial>	
+				<tr><td></td><td></td><td></td><td><hr class="line1 line"></hr></td><td></td><td><hr class="line2 line"></hr></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td class='text1 text'></td><td></td><td class='text2 text'></td><td></td><td></td><td class='text3 text'></td><td></td><td class='text4 text'></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td><hr class="line3 line"></hr></td><td></td><td><hr class="line4 line"></hr></td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td></tr>				
+			</table>				
+
+		<!-- 游戏棋子操作区域 -->
+		<table id='chessmanTable'>
+			<tr>
+				<td><label class='A' name='che'><span></span></label></td>
+				<td><label class='A' name='ma'><span></span></label></td>
+				<td><label class='A' name='xiang'><span></span></label></td>
+				<td><label class='A' name='shi'><span></span></label></td>
+				<td><label class='A' name='jiang'><span></span></label></td>
+				<td><label class='A' name='che'><span></span></label></td>
+				<td><label class='A' name='ma'><span></span></label></td>
+				<td><label class='A' name='xiang'><span></span></label></td>
+				<td><label class='A' name='shi'><span></span></label></td>
+			</tr>
+			<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr>
+				<td></td>
+				<td><label class='A' name='pao'><span></span></label></td>
+				<td></td><td></td><td></td><td></td><td></td>
+				<td class='selected'>
+					<label class='A' name='pao'><span></span></label>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><label class='A' name='bing'><span></span></label></td><td></td>
+				<td><label class='A' name='bing'><span></span></label></td><td></td>
+				<td><label class='A' name='bing'><span></span></label></td><td></td>
+				<td><label class='A' name='bing'><span></span></label></td><td></td>
+				<td><label class='A' name='bing'><span></span></label></td>
+			</tr>
+			<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr>
+				<td><label class='B' name='bing'><span></span></label></td><td></td>
+				<td><label class='B' name='bing'><span></span></label></td><td></td>
+				<td><label class='B' name='bing'><span></span></label></td><td></td>
+				<td><label class='B' name='bing'><span></span></label></td><td></td>
+				<td><label class='B' name='bing'><span></span></label></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><label class='B' name='pao'><span></span></label></td>
+				<td></td><td></td><td></td><td></td><td></td>
+				<td><label class='B' name='pao'><span></span></label></td>
+				<td></td>
+			</tr>
+			<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr>
+				<td><label class='B' name='che'><span></span></label></td>
+				<td><label class='B' name='ma'><span></span></label></td>
+				<td><label class='B' name='xiang'><span></span></label></td>
+				<td><label class='B' name='shi'><span></span></label></td>
+				<td><label class='B' name='jiang'><span></span></label></td>
+				<td><label class='B' name='shi'><span></span></label></td>
+				<td><label class='B' name='xiang'><span></span></label></td>
+				<td><label class='B' name='ma'><span></span></label></td>
+				<td><label class='B' name='che'><span></span></label></td>
+			</tr>					
+		</table>
+	</div>
+	
+</div>
+<!-- Modal -->
+<div class="modal fade" id="chessTableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		     
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		     
+    </div>
+  </div>
+</div>
+
+<link rel='stylesheet' type='text/css' href="css/chess.css" />
+

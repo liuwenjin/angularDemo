@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+}
+.container-fluid {
+	height: 100%;
+}
+.topArea {
+	height: 50px;
+}
+.mainArea {
+	height: calc(100% - 80px); 
+	background-color: #F2F2F2;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.mainArea>.menu {
+	position: relative;
+	height: calc(100% + 100px);
+	background-color: #F8F8F8;	
+}
+.mainArea>.menu {
+	position: relative;
+	height: calc(100% + 100px);
+	background-color: #F8F8F8;	
+}
+
+
+.footArea {
+	height: 30px;	
+	background-color: #E8E8E8;	
+}
